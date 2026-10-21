@@ -1,0 +1,1 @@
+This project is a website of something between a sketchpad and an etch-a-sketch.It will skill my knowledge on DOM manipulation.
