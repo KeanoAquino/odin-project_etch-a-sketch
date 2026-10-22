@@ -5,6 +5,10 @@
     --item-size: calc(var(--container-size) / var(--grid-dimension));
 }
 
+body {
+    background-color: rgb(222, 222, 222);
+}
+
 .canvas-wrapper {
     display: flex;
     justify-content: center;
@@ -25,5 +29,9 @@
     width: var(--item-size);
     height: var(--item-size);
     font-size: 0.5rem;
-    background-color: rgb(222, 222, 222);
+    background-color: white;
+}
+
+.dark {
+    background-color: black;
 }
