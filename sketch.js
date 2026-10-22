@@ -1,5 +1,5 @@
 const canvas = document.querySelector(".canvas-container");
-let dimension = 100; //default dimension is 16x16 grid
+let dimension = 16; //default dimension is 16x16 grid
 
 function createCanvas(dimension) { 
     let pixels = dimension * dimension;
@@ -10,7 +10,6 @@ for (i=1; i <= pixels; i++) {
     let item = document.createElement("div");
     canvas.appendChild(item);
     item.classList.add("item");
-    // item.textContent = i;
 }
 }
 
@@ -22,12 +21,16 @@ canvas.addEventListener("dragstart", (e) => {
 
 document.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("item")) {
+        let currentOpacity = parseFloat(e.target.style.opacity) || 0; //default to 0 if no opacity
+        e.target.style.opacity = (currentOpacity + 0.1).toString();
         e.target.classList.add("dark");
     }
 })
 
 document.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("item") && e.buttons === 1) {
+        let currentOpacity = parseFloat(e.target.style.opacity) || 0; //default to 0 if no opacity
+        e.target.style.opacity = (currentOpacity + 0.1).toString();
         e.target.classList.add("dark");
     }
 })
