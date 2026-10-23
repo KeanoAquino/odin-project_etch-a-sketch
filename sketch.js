@@ -6,11 +6,16 @@ function createCanvas(dimension) {
 
     document.documentElement.style.setProperty("--grid-dimension", dimension);
 
-for (i=1; i <= pixels; i++) {
-    let item = document.createElement("div");
-    canvas.appendChild(item);
-    item.classList.add("item");
+    for (i=1; i <= pixels; i++) {
+        let item = document.createElement("div");
+        canvas.appendChild(item);
+        item.classList.add("item");
+    }
 }
+
+function removeCanvas() {
+    let canvas = document.querySelector(".canvas-container");
+    canvas.replaceChildren();
 }
 
 //prevent dragging inside canvas when holding down left click
@@ -32,6 +37,17 @@ document.addEventListener("mouseover", (e) => {
         let currentOpacity = parseFloat(e.target.style.opacity) || 0; //default to 0 if no opacity
         e.target.style.opacity = (currentOpacity + 0.1).toString();
         e.target.classList.add("dark");
+    }
+})
+
+document.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (e.target.classList.contains("grid-bttn")) {
+        const input = document.querySelector("#grid");
+        const newSize = input.value;
+        dimension = parseInt(newSize, 10);
+        removeCanvas();
+        createCanvas(dimension);
     }
 })
 
