@@ -3,11 +3,10 @@
     --grid-dimension: 16; 
     --container-size: clamp(1rem, 70vmin, 150rem);
     --item-size: calc(var(--container-size) / var(--grid-dimension));
-    --background-red: red;
+    --background-red: rgb(230, 40, 40);
 }
 
 body {
-    background-color: rgb(222, 222, 222);
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
@@ -44,6 +43,18 @@ h1::after {
     font-size: clamp(0.125rem, 2.5vmin, 150rem);
 }
 
+.canvas-input {
+    margin-bottom: clamp(0.125rem, 0.5vmin, 5rem);
+}
+
+.class-input_field {
+    font-size: 2vmin;
+}
+
+input[type="number"] {
+    width: 5ch;
+}
+
 .canvas-wrapper {
     width: max-content;
     height: max-content;
@@ -59,14 +70,14 @@ h1::after {
     align-items: center;
     width: var(--container-size);
     height: var(--container-size);
-    background-color: white;
+    background-color: rgb(210, 210, 210);
 }
 
 .item {
     width: var(--item-size);
     height: var(--item-size);
     font-size: 0.5rem;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(210, 210, 210);
 }
 
 .dark {
