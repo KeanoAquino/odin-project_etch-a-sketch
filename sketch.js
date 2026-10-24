@@ -44,8 +44,18 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     if (e.target.classList.contains("grid-bttn")) {
         const input = document.querySelector("#grid");
-        const newSize = input.value;
-        dimension = parseInt(newSize, 10);
+        const newSize = parseInt(input.value, 10);
+        //check for invalid input range
+        if (newSize > 100) {
+            dimension = 100;
+        }
+        else if (newSize < 1) {
+            dimension = 1;
+        }
+        else {
+            dimension = newSize;
+        }
+        input.value = dimension; //update input box to show actual grid size
         removeCanvas();
         createCanvas(dimension);
     }
